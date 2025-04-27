@@ -13,7 +13,7 @@ class Tarea(
     var idRecordatorio: Int? = null
 ) {
     fun crearTarea(): Boolean {
-        // Simula crear una tarea
+
         return true
     }
 
@@ -24,7 +24,7 @@ class Tarea(
     }
 
     fun eliminarTarea(): Boolean {
-        // Simula eliminar una tarea
+
         return true
     }
 
