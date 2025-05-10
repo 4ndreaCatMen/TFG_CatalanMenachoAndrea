@@ -29,6 +29,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".TareasActivity" />
         <activity android:name=".AgregarTareaActivity" />
+        <activity android:name=".EditarTareaActivity" />
 
 
 

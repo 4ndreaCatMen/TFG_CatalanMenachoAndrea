@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TareaAdapter(
     private val listaTareas: List<Tarea>,
+    private val onTareaClick: (Tarea) -> Unit,
     private val onTareaLongClick: (Tarea) -> Unit
-) : RecyclerView.Adapter<TareaAdapter.TareaViewHolder>() {
+) : RecyclerView.Adapter<TareaAdapter.TareaViewHolder>()
+ {
 
     class TareaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitulo: TextView = itemView.findViewById(R.id.tvTitulo)
@@ -22,20 +24,25 @@ class TareaAdapter(
         return TareaViewHolder(vista)
     }
 
-    override fun onBindViewHolder(holder: TareaViewHolder, position: Int) {
-        val tarea = listaTareas[position]
-        holder.tvTitulo.text = tarea.titulo
-        holder.tvDescripcion.text = tarea.descripcion
-        holder.tvPrioridad.text = "Prioridad: ${tarea.prioridad}"
+     override fun onBindViewHolder(holder: TareaViewHolder, position: Int) {
+         val tarea = listaTareas[position]
+         holder.tvTitulo.text = tarea.titulo
+         holder.tvDescripcion.text = tarea.descripcion
+         holder.tvPrioridad.text = "Prioridad: ${tarea.prioridad}"
 
-        // Aquí conectamos el long click
-        holder.itemView.setOnLongClickListener {
-            onTareaLongClick(tarea)
-            true
-        }
-    }
+         // Click corto → editar tarea
+         holder.itemView.setOnClickListener {
+             onTareaClick(tarea)
+         }
 
-    override fun getItemCount(): Int {
+         // Click largo → eliminar tarea
+         holder.itemView.setOnLongClickListener {
+             onTareaLongClick(tarea)
+             true
+         }
+     }
+
+     override fun getItemCount(): Int {
         return listaTareas.size
     }
 }

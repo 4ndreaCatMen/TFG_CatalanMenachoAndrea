@@ -38,9 +38,22 @@ class TareasActivity : AppCompatActivity() {
 
     private fun mostrarTareas() {
         val listaTareas = dbHelper.obtenerTodasLasTareas()
-        tareaAdapter = TareaAdapter(listaTareas) { tareaSeleccionada ->
-            mostrarDialogoEliminar(tareaSeleccionada)
-        }
+        tareaAdapter = TareaAdapter(
+            listaTareas,
+            onTareaClick = { tarea ->
+                val intent = Intent(this, EditarTareaActivity::class.java).apply {
+                    putExtra("idTarea", tarea.idTarea)
+                    putExtra("titulo", tarea.titulo)
+                    putExtra("descripcion", tarea.descripcion)
+                    putExtra("prioridad", tarea.prioridad)
+                }
+                startActivity(intent)
+            },
+            onTareaLongClick = { tarea ->
+                mostrarDialogoEliminar(tarea)
+            }
+        )
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = tareaAdapter
     }
