@@ -1,18 +1,9 @@
 package com.example.tidytask
 
 class Usuario(
-    var idUsuario: Int,
+    var idUsuario: Int = 0,
     var nombre: String,
+    var apellidos: String,
     var correo: String,
     var contrasena: String
-) {
-    fun registrarUsuario(): Boolean {
-
-        return true
-    }
-
-    fun iniciarSesion(): Boolean {
-
-        return true
-    }
-}
+)

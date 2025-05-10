@@ -12,15 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TidyTask"
         tools:targetApi="31">
+
+        <!-- Pantalla de bienvenida como inicio -->
         <activity
-            android:name=".MainActivity"
+            android:name=".InicioActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Las otras actividades -->
+        <activity android:name=".RegistroActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".TareasActivity" />
+        <activity android:name=".AgregarTareaActivity" />
+
+
+
     </application>
 
 </manifest>
