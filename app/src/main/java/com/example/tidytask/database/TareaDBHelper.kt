@@ -71,4 +71,11 @@ class TareaDBHelper(context: Context) :
         return lista
     }
 
+    fun eliminarTareaPorId(id: Int): Boolean {
+        val db = writableDatabase
+        val resultado = db.delete("tareas", "id = ?", arrayOf(id.toString()))
+        db.close()
+        return resultado > 0
+    }
+
 }

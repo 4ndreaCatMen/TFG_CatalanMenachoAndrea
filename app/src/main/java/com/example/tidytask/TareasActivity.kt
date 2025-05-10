@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,8 +38,27 @@ class TareasActivity : AppCompatActivity() {
 
     private fun mostrarTareas() {
         val listaTareas = dbHelper.obtenerTodasLasTareas()
-        tareaAdapter = TareaAdapter(listaTareas)
+        tareaAdapter = TareaAdapter(listaTareas) { tareaSeleccionada ->
+            mostrarDialogoEliminar(tareaSeleccionada)
+        }
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = tareaAdapter
     }
+    private fun mostrarDialogoEliminar(tarea: Tarea) {
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Eliminar tarea")
+        builder.setMessage("¿Estás segura de que quieres eliminar esta tarea?")
+        builder.setPositiveButton("Sí") { _, _ ->
+            val eliminada = dbHelper.eliminarTareaPorId(tarea.idTarea)
+            if (eliminada) {
+                Toast.makeText(this, "Tarea eliminada", Toast.LENGTH_SHORT).show()
+                mostrarTareas()
+            } else {
+                Toast.makeText(this, "Error al eliminar", Toast.LENGTH_SHORT).show()
+            }
+        }
+        builder.setNegativeButton("Cancelar", null)
+        builder.show()
+    }
+
 }

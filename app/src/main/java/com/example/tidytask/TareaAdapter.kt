@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TareaAdapter(private val listaTareas: List<Tarea>) :
-    RecyclerView.Adapter<TareaAdapter.TareaViewHolder>() {
+class TareaAdapter(
+    private val listaTareas: List<Tarea>,
+    private val onTareaLongClick: (Tarea) -> Unit
+) : RecyclerView.Adapter<TareaAdapter.TareaViewHolder>() {
 
     class TareaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitulo: TextView = itemView.findViewById(R.id.tvTitulo)
@@ -25,6 +27,12 @@ class TareaAdapter(private val listaTareas: List<Tarea>) :
         holder.tvTitulo.text = tarea.titulo
         holder.tvDescripcion.text = tarea.descripcion
         holder.tvPrioridad.text = "Prioridad: ${tarea.prioridad}"
+
+        // Aquí conectamos el long click
+        holder.itemView.setOnLongClickListener {
+            onTareaLongClick(tarea)
+            true
+        }
     }
 
     override fun getItemCount(): Int {
