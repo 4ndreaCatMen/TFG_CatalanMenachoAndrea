@@ -19,6 +19,7 @@ class TareaAdapter(
         val tvTitulo: TextView = itemView.findViewById(R.id.tvTitulo)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
         val tvPrioridad: TextView = itemView.findViewById(R.id.tvPrioridad)
+        val tvHora: TextView = itemView.findViewById(R.id.tvHora)
         val checkBox: CheckBox = itemView.findViewById(R.id.checkBoxCompletada)
     }
 
@@ -33,6 +34,7 @@ class TareaAdapter(
         holder.tvTitulo.text = tarea.titulo
         holder.tvDescripcion.text = tarea.descripcion
         holder.tvPrioridad.text = "Prioridad: ${tarea.prioridad}"
+        holder.tvHora.text = "Hora: ${tarea.hora}"
         holder.checkBox.isChecked = tarea.completada
 
         aplicarEstiloTachado(holder, tarea.completada)
