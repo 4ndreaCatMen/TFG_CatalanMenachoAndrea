@@ -42,17 +42,25 @@ class EditarTareaActivity : AppCompatActivity() {
             val nuevaDescripcion = etDescripcion.text.toString()
             val nuevaPrioridad = spinnerPrioridad.selectedItem.toString()
 
-            if (nuevoTitulo.isNotEmpty() && nuevaDescripcion.isNotEmpty()) {
-                val actualizada = dbHelper.actualizarTarea(tareaId, nuevoTitulo, nuevaDescripcion, nuevaPrioridad)
-                if (actualizada) {
-                    Toast.makeText(this, "Tarea actualizada", Toast.LENGTH_SHORT).show()
-                    finish()
-                } else {
-                    Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show()
-                }
-            } else {
+            if (nuevoTitulo.isBlank() || nuevaDescripcion.isBlank()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val actualizada = dbHelper.actualizarTarea(tareaId, nuevoTitulo, nuevaDescripcion, nuevaPrioridad)
+            if (actualizada) {
+                Toast.makeText(this, "Tarea actualizada", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Error al actualizar", Toast.LENGTH_SHORT).show()
             }
         }
+
+        val btnCancelar = findViewById<Button>(R.id.btnCancelar)
+        btnCancelar.setOnClickListener {
+            Toast.makeText(this, "Cambios descartados", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
     }
 }
