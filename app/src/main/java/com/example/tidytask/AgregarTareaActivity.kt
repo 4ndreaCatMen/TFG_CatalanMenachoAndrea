@@ -9,6 +9,7 @@ class AgregarTareaActivity : AppCompatActivity() {
 
     private var horaSeleccionada = -1
     private var minutoSeleccionado = -1
+    private var fechaSeleccionada = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +35,23 @@ class AgregarTareaActivity : AppCompatActivity() {
                 }, hora, minuto, true)
 
             timePicker.show()
+        }
+
+        val btnSeleccionarFecha = findViewById<Button>(R.id.btnSeleccionarFecha)
+
+        btnSeleccionarFecha.setOnClickListener {
+            val calendario = java.util.Calendar.getInstance()
+            val anio = calendario.get(java.util.Calendar.YEAR)
+            val mes = calendario.get(java.util.Calendar.MONTH)
+            val dia = calendario.get(java.util.Calendar.DAY_OF_MONTH)
+
+            val datePicker = android.app.DatePickerDialog(this,
+                { _, year, month, dayOfMonth ->
+                    fechaSeleccionada = String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year)
+                    btnSeleccionarFecha.text = "Fecha: $fechaSeleccionada"
+                }, anio, mes, dia)
+
+            datePicker.show()
         }
 
 
@@ -62,7 +80,7 @@ class AgregarTareaActivity : AppCompatActivity() {
                     idTarea = 0,
                     titulo = titulo,
                     descripcion = descripcion,
-                    fecha = "",  // vacío por ahora
+                    fecha = fechaSeleccionada,
                     hora = horaTexto,
                     prioridad = prioridad,
                     completada = false,

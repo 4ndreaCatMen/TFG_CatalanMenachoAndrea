@@ -38,6 +38,14 @@
         android:text="Seleccionar hora" />
 
     <Button
+        android:id="@+id/btnSeleccionarFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar fecha"
+        android:layout_marginTop="12dp" />
+
+
+    <Button
         android:id="@+id/btnGuardarTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
