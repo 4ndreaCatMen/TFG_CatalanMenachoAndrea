@@ -50,16 +50,23 @@ class AgregarTareaActivity : AppCompatActivity() {
             val descripcion = etDescripcion.text.toString()
             val prioridad = spinnerPrioridad.selectedItem.toString()
 
+            // Aquí preparamos la hora como texto
+            val horaTexto = if (horaSeleccionada >= 0 && minutoSeleccionado >= 0) {
+                String.format("%02d:%02d", horaSeleccionada, minutoSeleccionado)
+            } else {
+                ""
+            }
+
             if (titulo.isNotEmpty() && descripcion.isNotEmpty()) {
                 val tarea = Tarea(
                     idTarea = 0,
                     titulo = titulo,
                     descripcion = descripcion,
-                    fecha = "",  // Lo dejamos vacío por ahora
-                    hora = "",
+                    fecha = "",  // vacío por ahora
+                    hora = horaTexto,
                     prioridad = prioridad,
                     completada = false,
-                    idUsuario = 1 // Simulado por ahora
+                    idUsuario = 1
                 )
 
                 val insertada = dbHelper.insertarTarea(tarea)

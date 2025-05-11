@@ -3,6 +3,7 @@ package com.example.tidytask
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,10 @@ class TareasActivity : AppCompatActivity() {
 
         btnAgregarTarea.setOnClickListener {
             startActivity(Intent(this, AgregarTareaActivity::class.java))
+        }
+        val iconoNotificacion = findViewById<ImageView>(R.id.iconoNotificacion)
+        iconoNotificacion.setOnClickListener {
+            mostrarRecordatorios()
         }
     }
 
@@ -72,6 +77,23 @@ class TareasActivity : AppCompatActivity() {
         }
         builder.setNegativeButton("Cancelar", null)
         builder.show()
+    }
+
+    private fun mostrarRecordatorios() {
+        val tareasConHora = dbHelper.obtenerTareasConHora()
+
+        if (tareasConHora.isEmpty()) {
+            Toast.makeText(this, "No hay recordatorios asignados", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val mensajes = tareasConHora.map { "${it.titulo} - ${it.hora}" }.toTypedArray()
+
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Tareas con recordatorio")
+            .setItems(mensajes, null)
+            .setPositiveButton("Cerrar", null)
+            .show()
     }
 
 }

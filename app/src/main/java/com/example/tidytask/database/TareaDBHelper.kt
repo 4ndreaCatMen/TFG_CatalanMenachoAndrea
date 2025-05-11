@@ -98,5 +98,31 @@ class TareaDBHelper(context: Context) :
         db.close()
         return resultado > 0
     }
+    fun obtenerTareasConHora(): List<Tarea> {
+        val lista = mutableListOf<Tarea>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM tareas WHERE hora IS NOT NULL AND hora != ''", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val tarea = Tarea(
+                    idTarea = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                    titulo = cursor.getString(cursor.getColumnIndexOrThrow("titulo")),
+                    descripcion = cursor.getString(cursor.getColumnIndexOrThrow("descripcion")),
+                    fecha = cursor.getString(cursor.getColumnIndexOrThrow("fecha")),
+                    hora = cursor.getString(cursor.getColumnIndexOrThrow("hora")),
+                    prioridad = cursor.getString(cursor.getColumnIndexOrThrow("prioridad")),
+                    completada = cursor.getInt(cursor.getColumnIndexOrThrow("completada")) == 1,
+                    idUsuario = cursor.getInt(cursor.getColumnIndexOrThrow("idUsuario"))
+                )
+                lista.add(tarea)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+        return lista
+    }
+
 
 }
