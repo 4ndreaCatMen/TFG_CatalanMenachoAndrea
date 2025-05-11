@@ -89,6 +89,14 @@ class TareaDBHelper(context: Context) :
         db.close()
         return resultado > 0
     }
-
+    fun actualizarEstadoCompletada(idTarea: Int, completada: Boolean): Boolean {
+        val db = writableDatabase
+        val valores = ContentValues().apply {
+            put("completada", if (completada) 1 else 0)
+        }
+        val resultado = db.update("tareas", valores, "id = ?", arrayOf(idTarea.toString()))
+        db.close()
+        return resultado > 0
+    }
 
 }

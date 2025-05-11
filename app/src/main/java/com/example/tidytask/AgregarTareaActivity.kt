@@ -7,6 +7,10 @@ import com.example.tidytask.database.TareaDBHelper
 
 class AgregarTareaActivity : AppCompatActivity() {
 
+    private var horaSeleccionada = -1
+    private var minutoSeleccionado = -1
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_tarea)
@@ -15,6 +19,23 @@ class AgregarTareaActivity : AppCompatActivity() {
         val etDescripcion = findViewById<EditText>(R.id.etDescripcion)
         val spinnerPrioridad = findViewById<Spinner>(R.id.spinnerPrioridad)
         val btnGuardar = findViewById<Button>(R.id.btnGuardarTarea)
+        val btnSeleccionarHora = findViewById<Button>(R.id.btnSeleccionarHora)
+
+        btnSeleccionarHora.setOnClickListener {
+            val horaActual = java.util.Calendar.getInstance()
+            val hora = horaActual.get(java.util.Calendar.HOUR_OF_DAY)
+            val minuto = horaActual.get(java.util.Calendar.MINUTE)
+
+            val timePicker = android.app.TimePickerDialog(this,
+                { _, selectedHour, selectedMinute ->
+                    horaSeleccionada = selectedHour
+                    minutoSeleccionado = selectedMinute
+                    btnSeleccionarHora.text = String.format("Hora: %02d:%02d", selectedHour, selectedMinute)
+                }, hora, minuto, true)
+
+            timePicker.show()
+        }
+
 
         // Opciones del spinner
         val prioridades = arrayOf("Alta", "Media", "Baja")

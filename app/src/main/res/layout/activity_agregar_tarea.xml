@@ -25,6 +25,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora del recordatorio"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnSeleccionarHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar hora" />
+
     <Button
         android:id="@+id/btnGuardarTarea"
         android:layout_width="match_parent"
