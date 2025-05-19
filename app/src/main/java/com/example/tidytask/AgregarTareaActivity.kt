@@ -26,6 +26,11 @@ class AgregarTareaActivity : AppCompatActivity() {
         val tvHoraSeleccionada = findViewById<TextView>(R.id.tvHoraSeleccionada)
         val tvFechaSeleccionada = findViewById<TextView>(R.id.tvFechaSeleccionada)
 
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         val prioridades = arrayOf("Alta", "Media", "Baja")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, prioridades)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#EFEFEF"
-    android:padding="12dp"
-    android:layout_marginBottom="8dp">
+    android:background="@drawable/fondo_tarjeta_tarea"
+    android:padding="16dp"
+    android:layout_margin="12dp">
 
+    <!-- Cabecera: Checkbox, Título, Expandir y Papelera -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,7 +18,10 @@
         <CheckBox
             android:id="@+id/checkBoxCompletada"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:button="@drawable/checkbox_custom"
+            android:layout_marginEnd="8dp"/>
+
 
         <TextView
             android:id="@+id/tvTitulo"
@@ -26,6 +31,7 @@
             android:paddingStart="8dp"
             android:text="Título"
             android:textStyle="bold"
+            android:textColor="#4A3F35"
             android:textSize="16sp" />
 
         <ImageView
@@ -33,19 +39,20 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/arrow_down_float"
+            app:tint="#B08968"
+            android:layout_marginEnd="8dp"
             android:contentDescription="Expandir" />
 
         <ImageView
             android:id="@+id/btnEliminar"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="8dp"
             android:src="@drawable/ic_delete"
+            app:tint="#B08968"
             android:contentDescription="Eliminar tarea" />
-
     </LinearLayout>
 
-    <!-- Contenedor de detalles ocultables -->
+    <!-- Detalles que se expanden -->
     <LinearLayout
         android:id="@+id/contenedorDetalles"
         android:layout_width="match_parent"
@@ -59,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Descripción"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="#4A3F35" />
 
         <TextView
             android:id="@+id/tvPrioridad"
@@ -67,23 +75,25 @@
             android:layout_height="wrap_content"
             android:text="Prioridad"
             android:textSize="12sp"
-            android:textColor="#666"
+            android:textColor="#6E5C4E"
             android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/tvHora"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hora:"
+            android:text="Hora"
             android:textSize="12sp"
+            android:textColor="#6E5C4E"
             android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fecha:"
+            android:text="Fecha"
             android:textSize="12sp"
+            android:textColor="#6E5C4E"
             android:layout_marginTop="4dp" />
     </LinearLayout>
 </LinearLayout>
