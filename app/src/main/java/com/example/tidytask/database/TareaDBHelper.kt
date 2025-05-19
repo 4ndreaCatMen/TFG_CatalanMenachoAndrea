@@ -78,17 +78,27 @@ class TareaDBHelper(context: Context) :
         return resultado > 0
     }
 
-    fun actualizarTarea(id: Int, nuevoTitulo: String, nuevaDescripcion: String, nuevaPrioridad: String): Boolean {
+    fun actualizarTarea(
+        id: Int,
+        nuevoTitulo: String,
+        nuevaDescripcion: String,
+        nuevaPrioridad: String,
+        nuevaFecha: String?,
+        nuevaHora: String?
+    ): Boolean {
         val db = writableDatabase
         val valores = ContentValues().apply {
             put("titulo", nuevoTitulo)
             put("descripcion", nuevaDescripcion)
             put("prioridad", nuevaPrioridad)
+            put("fecha", nuevaFecha)
+            put("hora", nuevaHora)
         }
         val resultado = db.update("tareas", valores, "id = ?", arrayOf(id.toString()))
         db.close()
         return resultado > 0
     }
+
     fun actualizarEstadoCompletada(idTarea: Int, completada: Boolean): Boolean {
         val db = writableDatabase
         val valores = ContentValues().apply {

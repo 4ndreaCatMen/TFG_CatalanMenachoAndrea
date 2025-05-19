@@ -1,5 +1,6 @@
 package com.example.tidytask
 
+import TareaAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -51,6 +52,8 @@ class TareasActivity : AppCompatActivity() {
                     putExtra("titulo", tarea.titulo)
                     putExtra("descripcion", tarea.descripcion)
                     putExtra("prioridad", tarea.prioridad)
+                    putExtra("fecha", tarea.fecha)
+                    putExtra("hora", tarea.hora)
                 }
                 startActivity(intent)
             },
