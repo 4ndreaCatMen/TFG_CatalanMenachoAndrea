@@ -4,6 +4,7 @@ import TareaAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CalendarView
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -31,11 +32,33 @@ class TareasActivity : AppCompatActivity() {
         btnAgregarTarea.setOnClickListener {
             startActivity(Intent(this, AgregarTareaActivity::class.java))
         }
+
         val iconoNotificacion = findViewById<ImageView>(R.id.iconoNotificacion)
+
+        val btnFiltrarFecha = findViewById<Button>(R.id.btnFiltrarFecha)
+        btnFiltrarFecha.setOnClickListener {
+            val calendario = java.util.Calendar.getInstance()
+            val anio = calendario.get(java.util.Calendar.YEAR)
+            val mes = calendario.get(java.util.Calendar.MONTH)
+            val dia = calendario.get(java.util.Calendar.DAY_OF_MONTH)
+
+            val datePicker = android.app.DatePickerDialog(this,
+                { _, year, month, dayOfMonth ->
+                    val fechaSeleccionada = String.format("%02d/%02d/%04d", dayOfMonth, month + 1, year)
+                    val tareasFiltradas = dbHelper.obtenerTodasLasTareas().filter {
+                        it.fecha == fechaSeleccionada
+                    }
+                    tareaAdapter.actualizarLista(tareasFiltradas)
+                }, anio, mes, dia)
+
+            datePicker.show()
+        }
+
         iconoNotificacion.setOnClickListener {
             mostrarRecordatorios()
         }
     }
+
 
     override fun onResume() {
         super.onResume()

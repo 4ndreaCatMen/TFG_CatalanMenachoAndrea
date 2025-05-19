@@ -114,4 +114,9 @@ class TareaAdapter(
             holder.tvTitulo.paintFlags = holder.tvTitulo.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
     }
+    fun actualizarLista(nuevaLista: List<Tarea>) {
+        listaTareas = nuevaLista
+        notifyDataSetChanged()
+    }
+
 }

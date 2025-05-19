@@ -36,17 +36,28 @@
         android:layout_height="wrap_content"
         android:text="Añadir tarea"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvBienvenida"
+        app:layout_constraintTop_toBottomOf="@id/tvBienvenida"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- RecyclerView con scroll -->
+    <!-- Botón Filtrar por fecha -->
+    <Button
+        android:id="@+id/btnFiltrarFecha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Filtrar por fecha"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnAgregarTarea"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTareas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@id/btnAgregarTarea"
+        app:layout_constraintTop_toBottomOf="@id/btnFiltrarFecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
