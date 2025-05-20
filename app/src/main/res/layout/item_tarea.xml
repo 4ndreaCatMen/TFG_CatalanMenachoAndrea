@@ -19,8 +19,7 @@
             android:id="@+id/checkBoxCompletada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:button="@drawable/checkbox_custom"
-            android:layout_marginEnd="8dp"/>
+            android:layout_marginEnd="8dp" />
 
 
         <TextView
