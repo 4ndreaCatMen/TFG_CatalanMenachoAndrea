@@ -1,35 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@color/colorSecundario"
-    android:padding="24dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvBienvenida"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Bienvenidx a TidyTask!"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/btnIrARegistro"
+    <!-- Contenido principal -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-        android:backgroundTint="@color/colorBoton"
-        android:textColor="@color/white"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:background="@color/colorSecundario">
 
-    <Button
-        android:id="@+id/btnIrALogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar sesión"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/colorBoton"
-        android:textColor="@color/white"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvBienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Bienvenidx a TidyTask!"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTexto"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btnIrARegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnIrALogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Iniciar sesión"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- Osito decorativo perfectamente colocado -->
+    <ImageView
+        android:id="@+id/ositoFondo"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/holaosito"
+        android:contentDescription="Osito decorativo"
+        android:scaleType="fitCenter" />
+</FrameLayout>

@@ -9,7 +9,19 @@
     android:background="@color/colorSecundario"
     tools:context=".TareasActivity">
 
-    <!-- Título -->
+    <ImageView
+        android:id="@+id/imagenOsito"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ositoo"
+        android:contentDescription="Osito decorativo"
+        app:layout_constraintBottom_toTopOf="@id/btnCerrarSesion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.9"
+        android:scaleType="centerInside" />
+    >
     <TextView
         android:id="@+id/tvBienvenida"
         android:layout_width="wrap_content"
@@ -20,7 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Flecha volver a la izquierda -->
     <ImageButton
         android:id="@+id/btnVolverListaCompleta"
         android:layout_width="36dp"
@@ -33,9 +44,9 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/tvBienvenida"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/colorTexto"/>
+        app:tint="@color/colorTexto" />
 
-    <!-- Icono notificación -->
+
     <ImageView
         android:id="@+id/iconoNotificacion"
         android:layout_width="24dp"
@@ -44,9 +55,9 @@
         android:contentDescription="Notificaciones"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/colorTexto"/>
+        app:tint="@color/colorTexto" />
 
-    <!-- Botón Añadir tarea -->
+
     <Button
         android:id="@+id/btnAgregarTarea"
         android:layout_width="0dp"
@@ -57,9 +68,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/colorBoton"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
-    <!-- Botón Filtrar por fecha -->
+
     <Button
         android:id="@+id/btnFiltrarFecha"
         android:layout_width="0dp"
@@ -70,20 +81,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:backgroundTint="@color/colorBoton"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
-    <!-- RecyclerView -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTareas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/btnFiltrarFecha"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnCerrarSesion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Botón cerrar sesión -->
+
     <ImageButton
         android:id="@+id/btnCerrarSesion"
         android:layout_width="40dp"
