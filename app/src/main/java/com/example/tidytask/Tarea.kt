@@ -11,25 +11,6 @@ class Tarea(
     var idUsuario: Int,
     var idCategoria: Int? = null,
     var idRecordatorio: Int? = null
-) {
-    fun crearTarea(): Boolean {
+)
 
-        return true
-    }
 
-    fun editarTarea(nuevoTitulo: String, nuevaDescripcion: String): Boolean {
-        titulo = nuevoTitulo
-        descripcion = nuevaDescripcion
-        return true
-    }
-
-    fun eliminarTarea(): Boolean {
-
-        return true
-    }
-
-    fun marcarCompletada(): Boolean {
-        completada = true
-        return true
-    }
-}
