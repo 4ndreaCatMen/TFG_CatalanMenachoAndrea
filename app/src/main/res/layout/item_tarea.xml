@@ -8,7 +8,7 @@
     android:padding="16dp"
     android:layout_margin="12dp">
 
-    <!-- Cabecera: Checkbox, Título, Expandir y Papelera -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
             android:contentDescription="Eliminar tarea" />
     </LinearLayout>
 
-    <!-- Detalles que se expanden -->
+    
     <LinearLayout
         android:id="@+id/contenedorDetalles"
         android:layout_width="match_parent"
