@@ -104,5 +104,10 @@ class EditarTareaActivity : AppCompatActivity() {
 
             datePicker.show()
         }
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish()
+        }
+
     }
 }

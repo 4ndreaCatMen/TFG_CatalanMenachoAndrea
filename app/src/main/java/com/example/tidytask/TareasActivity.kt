@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -57,8 +58,15 @@ class TareasActivity : AppCompatActivity() {
         iconoNotificacion.setOnClickListener {
             mostrarRecordatorios()
         }
-    }
+        val btnCerrarSesion = findViewById<ImageButton>(R.id.btnCerrarSesion)
+        btnCerrarSesion.setOnClickListener {
+            val intent = Intent(this, InicioActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
 
+    }
 
     override fun onResume() {
         super.onResume()
