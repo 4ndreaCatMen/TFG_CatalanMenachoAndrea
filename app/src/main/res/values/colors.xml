@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores pastel personalizados -->
+    <color name="colorPrincipal">#F2C6B4</color> <!-- rosita pastel -->
+    <color name="colorSecundario">#F9E2D2</color> <!-- fondo claro -->
+    <color name="colorBoton">#E6A19E</color> <!-- salmón pastel -->
+    <color name="colorTexto">#5C4033</color> <!-- marrón suave -->
 </resources>
