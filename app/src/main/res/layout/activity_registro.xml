@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorSecundario">
 
-    <!-- Flecha de volver -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="36dp"
@@ -54,6 +53,8 @@
             android:id="@+id/btnRegistrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            android:text="Registrarse"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </FrameLayout>

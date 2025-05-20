@@ -20,12 +20,16 @@
         android:id="@+id/btnIrARegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrarse" />
+        android:text="Registrarse"
+        android:backgroundTint="@color/colorBoton"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnIrALogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Iniciar sesión"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorBoton"
+        android:textColor="@color/white"/>
 </LinearLayout>

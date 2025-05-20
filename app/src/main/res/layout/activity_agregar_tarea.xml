@@ -54,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seleccionar hora"
+            android:backgroundTint="@color/colorBoton"
             android:layout_marginTop="12dp" />
 
         <TextView
@@ -71,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seleccionar fecha"
+            android:backgroundTint="@color/colorBoton"
             android:layout_marginTop="12dp" />
 
         <TextView
@@ -88,6 +90,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </FrameLayout>

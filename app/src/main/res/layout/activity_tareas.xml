@@ -39,7 +39,9 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/tvBienvenida"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/colorBoton"
+        android:textColor="@color/white"/>
 
     <!-- Botón Filtrar por fecha -->
     <Button
@@ -50,7 +52,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/btnAgregarTarea"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/colorBoton"
+        android:textColor="@color/white"/>
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView

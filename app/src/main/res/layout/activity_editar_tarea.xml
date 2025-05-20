@@ -51,7 +51,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seleccionar hora"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/tvHoraSeleccionada"
@@ -68,7 +70,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Seleccionar fecha"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
 
         <TextView
             android:id="@+id/tvFechaSeleccionada"
@@ -85,13 +89,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Guardar cambios"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnCancelar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cancelar"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorBoton"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </FrameLayout>
