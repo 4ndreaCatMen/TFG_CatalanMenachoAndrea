@@ -35,8 +35,6 @@ class RegistroActivity : AppCompatActivity() {
 
                 if (registrado) {
                     Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
-                    // Opcional: abrir otra pantalla tras registrarse
-                    // startActivity(Intent(this, LoginActivity::class.java))
                     finish()
                 } else {
                     Toast.makeText(this, "Ese correo ya está registrado", Toast.LENGTH_SHORT).show()
@@ -47,7 +45,7 @@ class RegistroActivity : AppCompatActivity() {
         }
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
-            finish() // Cierra esta pantalla y vuelve a la anterior (pantalla de bienvenida)
+            finish() 
         }
 
     }
