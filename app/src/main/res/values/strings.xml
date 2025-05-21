@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TidyTask</string>
+    <string-array name="opciones_prioridad">
+        <item>Mostrar todas</item>
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Baja</item>
+    </string-array>
 </resources>

@@ -4,10 +4,12 @@ import TareaAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +34,17 @@ class TareasActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerViewTareas)
         btnVolverListaCompleta = findViewById(R.id.btnVolverListaCompleta)
         btnVolverListaCompleta.visibility = View.GONE
+        val spinnerPrioridad = findViewById<Spinner>(R.id.spinnerPrioridad)
+
+        spinnerPrioridad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val seleccion = parent.getItemAtPosition(position).toString()
+                filtrarPorPrioridad(seleccion)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
+
 
         dbHelper = TareaDBHelper(this)
 
@@ -108,6 +121,21 @@ class TareasActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = tareaAdapter
     }
+
+    private fun filtrarPorPrioridad(prioridadSeleccionada: String) {
+        val dbHelper = TareaDBHelper(this)
+        val todasLasTareas = dbHelper.obtenerTodasLasTareas() // o el método que tú tengas
+
+        val tareasFiltradas = when (prioridadSeleccionada) {
+            "Alta" -> todasLasTareas.filter { it.prioridad.equals("Alta", ignoreCase = true) }
+            "Media" -> todasLasTareas.filter { it.prioridad.equals("Media", ignoreCase = true) }
+            "Baja" -> todasLasTareas.filter { it.prioridad.equals("Baja", ignoreCase = true) }
+            else -> todasLasTareas
+        }
+
+        tareaAdapter.actualizarLista(tareasFiltradas)
+    }
+
     private fun mostrarDialogoEliminar(tarea: Tarea) {
         val builder = android.app.AlertDialog.Builder(this)
         builder.setTitle("Eliminar tarea")
